@@ -12,23 +12,29 @@ except KeyError:
     sys.exit(1)
 
 r = requests.post(API_URL, json={
-    "query": """{
-      repository(owner: \"libcthorne\", name: "stargazer") {
-        createdAt
-        description
-        url
-        owner {
-          login
-          pinnedRepositories(first:4) {
-            edges {
-              node {
-                url
+    "query": """
+      query($pinned_repos_count:Int!) {
+        repository(owner: "libcthorne", name: "stargazer") {
+          createdAt
+          description
+          url
+          owner {
+            login
+            pinnedRepositories(first:$pinned_repos_count) {
+              edges {
+                node {
+                  url
+                }
               }
             }
+            url
           }
-          url
         }
       }
-    }"""}, headers={"Authorization": "token {}".format(OAUTH_TOKEN)})
+    """,
+    "variables": {
+        "pinned_repos_count": 4
+    }
+}, headers={"Authorization": "token {}".format(OAUTH_TOKEN)})
 
 print(r.text)
