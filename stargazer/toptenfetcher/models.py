@@ -6,3 +6,14 @@ class GitHubLanguage(models.Model):
 
     def __str__(self):
         return self.language
+
+
+class GitHubRankedRepo(models.Model):
+    name = models.CharField(max_length=200)
+    stargazers = models.PositiveIntegerField()
+    language = models.ForeignKey(GitHubLanguage,
+        on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "[{}] {}: {} stars".format(
+            self.language, self.name, self.stargazers)
