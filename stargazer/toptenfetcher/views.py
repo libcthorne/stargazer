@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+from .models import GitHubLanguage
+
+
+def index(request):
+    languages = GitHubLanguage.objects.all()
+    languages_str = "<br/>".join([
+        language.language
+        for language in languages
+    ])
+    return HttpResponse(languages_str)
