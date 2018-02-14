@@ -3,6 +3,7 @@ import sys
 
 import requests
 from django.core.management.base import BaseCommand
+from django.db import transaction
 
 from toptenfetcher.models import (
     GitHubLanguage,
@@ -26,8 +27,9 @@ class Command(BaseCommand):
         for language in GitHubLanguage.objects.all():
             self.stdout.write("Fetching top ten repos for {}".format(language.name))
 
-            clear_top_ten_repos_for_language(language)
-            save_top_ten_repos_for_language(language)
+            with transaction.atomic():
+                clear_top_ten_repos_for_language(language)
+                save_top_ten_repos_for_language(language)
 
 
 def clear_top_ten_repos_for_language(language):

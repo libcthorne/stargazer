@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from django.core.management.base import BaseCommand
+from django.db import transaction
 
 from toptenfetcher.models import GitHubLanguage
 
@@ -13,8 +14,10 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.stdout.write("Fetching GitHub programming languages")
-        clear_github_languages()
-        save_github_languages()
+
+        with transaction.atomic():
+            clear_github_languages()
+            save_github_languages()
 
 
 def clear_github_languages():
