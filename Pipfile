@@ -9,6 +9,7 @@ name = "pypi"
 
 django = "*"
 requests = "*"
+"bs4" = "*"
 
 
 [dev-packages]
