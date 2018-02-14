@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('toptenfetcher', '0001_initial'),
+        ('fetcher', '0001_initial'),
     ]
 
     operations = [
@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=200)),
                 ('stargazers', models.PositiveIntegerField()),
-                ('language', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='toptenfetcher.GitHubLanguage')),
+                ('language', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='fetcher.GitHubLanguage')),
             ],
         ),
     ]

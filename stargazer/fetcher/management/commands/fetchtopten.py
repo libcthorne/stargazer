@@ -5,7 +5,7 @@ import requests
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
-from toptenfetcher.models import (
+from fetcher.models import (
     GitHubLanguage,
     GitHubRankedRepo,
 )

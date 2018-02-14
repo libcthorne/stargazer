@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('toptenfetcher', '0002_githubrankedrepo'),
+        ('fetcher', '0002_githubrankedrepo'),
     ]
 
     operations = [

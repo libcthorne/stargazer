@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'toptenfetcher.apps.ToptenfetcherConfig',
-    'toptenviewer.apps.ToptenviewerConfig',
+    'fetcher.apps.FetcherConfig',
+    'viewer.apps.ViewerConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

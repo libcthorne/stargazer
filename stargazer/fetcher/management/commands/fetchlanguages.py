@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
-from toptenfetcher.models import GitHubLanguage
+from fetcher.models import GitHubLanguage
 
 
 SEARCH_PAGE_URL = "https://github.com/search/advanced"

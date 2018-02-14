@@ -17,7 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'', include('toptenviewer.urls')),
-    url(r'^fetcher/', include('toptenfetcher.urls')),
+    url(r'', include('viewer.urls')),
+    url(r'^fetcher/', include('fetcher.urls')),
     url(r'^admin/', admin.site.urls),
 ]

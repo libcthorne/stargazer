@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 
-from toptenfetcher.models import GitHubLanguage, GitHubRankedRepo
+from fetcher.models import GitHubLanguage, GitHubRankedRepo
 
 
 def index(request):
