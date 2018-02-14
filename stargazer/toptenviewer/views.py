@@ -6,7 +6,7 @@ from toptenfetcher.models import GitHubLanguage, GitHubRankedRepo
 def index(request):
     languages = GitHubLanguage.objects.all()
     languages_str = "<br/>".join([
-        language.language
+        language.name
         for language in languages
     ])
 

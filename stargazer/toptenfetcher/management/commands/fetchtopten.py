@@ -24,7 +24,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         for language in GitHubLanguage.objects.all():
-            self.stdout.write("Fetching top ten repos for {}".format(language.language))
+            self.stdout.write("Fetching top ten repos for {}".format(language.name))
 
             clear_top_ten_repos_for_language(language)
             save_top_ten_repos_for_language(language)
@@ -54,7 +54,7 @@ def save_top_ten_repos_for_language(language):
           }
         """,
         "variables": {
-            "query": f"language:{language.language} sort:stars-desc"
+            "query": f"language:{language.name} sort:stars-desc"
         }
     }, headers={"Authorization": f"token {OAUTH_TOKEN}"})
 
