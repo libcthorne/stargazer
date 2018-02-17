@@ -1,16 +1,18 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'viewer/stylesheets/index.css' %}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
   <body>
-    <h1>Languages</h1>
+    <h1 id="title">Stargazer</h1>
+    <p id="description">Explore the most popular GitHub repositories by language</p>
 
-    {% for language in languages %}
-      {{ language }}<br/>
-    {% endfor %}
-
-    <h1>Repos</h1>
-
-    {% for repo in repos %}
-      {{ repo }}<br/>
-    {% endfor %}
+    <form>
+      <input id="search-box" placeholder="python" type="text"/>
+      <input id="search-button" type="submit" value="Search"/>
+    </form>
   </body>
 </html>

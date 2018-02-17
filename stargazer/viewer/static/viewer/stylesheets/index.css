@@ -1,0 +1,35 @@
+body {
+  font-family: arial;
+}
+
+#title {
+  padding-top: 120px;
+  text-align: center;
+  margin: 0px;
+  padding-bottom: 0px;
+  font-size: 70px;
+}
+
+#description {
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  text-align: center;
+}
+
+#search-box {
+  display: block;
+  font-size: 20px;
+  height: 25px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 450px;
+}
+
+#search-button {
+  display: block;
+  font-size: 20px;
+  margin: auto;
+  width: 200px;
+}
