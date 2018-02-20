@@ -24,7 +24,7 @@ PRODUCTION = bool(os.environ.get("PRODUCTION", False))
 if PRODUCTION:
     SECRET_KEY = os.environ["SECRET_KEY"]
     DEBUG = os.environ.get("DEBUG", False)
-    ALLOWED_HOSTS = ["*.herokuapp.com"]
+    ALLOWED_HOSTS = [".herokuapp.com"]
 else:
     SECRET_KEY = 'z@h!1su918x2fyyiwt$^u1x5z+o$uk=!gc=dm(swom75(qb5(l'
     DEBUG = True
