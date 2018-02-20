@@ -4,6 +4,11 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="{% static 'viewer/stylesheets/index.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'viewer/stylesheets/jquery-ui.css' %}"/>
+
+    <script type="text/javascript" src="{% static 'viewer/javascripts/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'viewer/javascripts/jquery-ui.js' %}"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -14,5 +19,13 @@
       <input id="search-box" name="language" placeholder="python" type="text"/>
       <input id="search-button" type="submit" value="Search"/>
     </form>
+
+    <script type="text/javascript">
+      {% autoescape off %}
+      var language_names = {{ language_names }};
+      {% endautoescape %}
+
+      $("#search-box").autocomplete({source: language_names});
+    </script>
   </body>
 </html>

@@ -1,10 +1,18 @@
 from django.shortcuts import get_object_or_404, render
+from django.utils.safestring import mark_safe
 
 from fetcher.models import GitHubLanguage, GitHubRankedRepo
 
 
 def index(request):
-    return render(request, "viewer/index.html")
+    language_names = [
+        language.name
+        for language in GitHubLanguage.objects.all()
+    ]
+
+    return render(request, "viewer/index.html", {
+        "language_names": language_names,
+    })
 
 def repos_show(request):
     language_name = request.GET.get("language")
