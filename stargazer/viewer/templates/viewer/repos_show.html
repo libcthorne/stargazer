@@ -1,15 +1,24 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'viewer/stylesheets/repos_show.css' %}"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <h1>{{ language }}</h1>
-    {% for repo in repos %}
-      <a href="https://github.com/{{ repo.name }}">
-        [{{ repo.stargazers }} stars] {{ repo.name }}
-      </a>
-      <br/>
-    {% endfor %}
+    <h1 id="language-name">{{ language }}</h1>
+    <div id="repo-results">
+      {% for repo in repos %}
+        <a href="https://github.com/{{ repo.name }}">
+          {{ repo.name }} ({{ repo.stargazers }} stars)
+        </a>
+      {% endfor %}
+    </div>
+    <br/>
+    <a id="search-again" href="/">
+      [back]
+    </a>
   </body>
 </html>

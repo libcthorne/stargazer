@@ -1,0 +1,18 @@
+body {
+  font-family: arial;
+}
+
+#language-name {
+  text-align: center;
+}
+
+#repo-results > a {
+  display: block;
+  text-align: center;
+}
+
+#search-again {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
