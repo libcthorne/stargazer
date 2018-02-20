@@ -2,6 +2,10 @@ body {
   font-family: arial;
 }
 
+#no-results-message {
+  text-align: center;
+}
+
 #language-name {
   text-align: center;
 }

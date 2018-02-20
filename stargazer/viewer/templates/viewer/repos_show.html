@@ -8,15 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <h1 id="language-name">{{ language }}</h1>
-    <div id="repo-results">
-      {% for repo in repos %}
-        <a href="https://github.com/{{ repo.name }}">
-          {{ repo.name }} ({{ repo.stargazers }} stars)
-        </a>
-      {% endfor %}
-    </div>
-    <br/>
+    {% if language %}
+      <h1 id="language-name">{{ language }}</h1>
+      <div id="repo-results">
+        {% for repo in repos %}
+          <a href="https://github.com/{{ repo.name }}">
+            {{ repo.name }} ({{ repo.stargazers }} stars)
+          </a>
+        {% endfor %}
+      </div>
+      <br/>
+    {% else %}
+      <h2 id="no-results-message">No results found</h2>
+    {% endif %}
     <a id="search-again" href="/">
       [back]
     </a>

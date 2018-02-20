@@ -16,13 +16,16 @@ def index(request):
 
 def repos_show(request):
     language_name = request.GET.get("language")
-    language = get_object_or_404(
-        GitHubLanguage,
-        name__iexact=language_name,
-    )
-    repos = GitHubRankedRepo.objects.filter(
-        language=language,
-    )
+
+    try:
+        language = GitHubLanguage.objects.get(name__iexact=language_name)
+    except GitHubLanguage.DoesNotExist:
+        language = None
+        repos = None
+    else:
+        repos = GitHubRankedRepo.objects.filter(
+            language=language,
+        )
 
     return render(request, "viewer/repos_show.html", {
         "language": language,
