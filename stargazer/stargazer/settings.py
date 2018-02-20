@@ -19,13 +19,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'z@h!1su918x2fyyiwt$^u1x5z+o$uk=!gc=dm(swom75(qb5(l'
+PRODUCTION = os.environ.get("PRODUCTION", False)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+if PRODUCTION:
+    SECRET_KEY = os.environ["SECRET_KEY"]
+    DEBUG = False
+    ALLOWED_HOSTS = ["*.herokuapp.com"]
+else:
+    SECRET_KEY = 'z@h!1su918x2fyyiwt$^u1x5z+o$uk=!gc=dm(swom75(qb5(l'
+    DEBUG = True
+    ALLOWED_HOSTS = []
 
 
 # Application definition
