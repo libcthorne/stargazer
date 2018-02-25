@@ -25,7 +25,7 @@ def repos_show(request):
     else:
         repos = GitHubRankedRepo.objects.filter(
             language=language,
-        )
+        ).order_by("-stargazers")
 
     return render(request, "viewer/repos_show.html", {
         "language": language,
